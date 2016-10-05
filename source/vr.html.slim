@@ -1,0 +1,16 @@
+script src="https://cdn.rawgit.com/aframevr/aframe/master/dist/aframe.js"
+script src="https://rawgit.com/ngokevin/aframe-text-component/master/dist/aframe-text-component.min.js"
+
+- data.recuerdos.recuerdos.each do |id, recuerdo|
+  a-scene
+    a-sky*{src: recuerdo.fotoEnvolvente.url}
+
+    - y_pivot = -135
+    - x_pos = 1
+    - z_pos = 1
+    - recuerdo.momentos.first.tap do |momento|
+      a-image*{rotation: "0 #{y_pivot} 0", position:"#{x_pos} 2 #{z_pos}", src: momento.imagen.url}
+      a-entity*{rotation: "0 #{y_pivot + 360} 0", text: "text: \"#{momento.cita}\"; size: 0.5", material:"color: #66E1B4", size: "0.5", position: "#{x_pos * 10} 0 #{z_pos}"}
+      - y_pivot *= -1
+      - x_pos *= -1
+      - z_pos *= -1

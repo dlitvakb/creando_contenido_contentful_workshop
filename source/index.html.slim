@@ -1,0 +1,8 @@
+- data.momentos.momentos.each do |id, momento|
+  .container
+    img.img-responsive.center-block*{src: "#{momento.imagen.url}?w=900"}
+    blockquote.center-block.text-center
+      p
+        = "\"#{momento.cita}\""
+      p
+        = "-- #{momento.autor}"

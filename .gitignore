@@ -1,0 +1,5 @@
+/data
+/build
+/.tmp
+*-space-hash
+*.lock
